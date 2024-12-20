@@ -61,14 +61,13 @@ La aplicación está desplegada en Netlify y es accesible en: [https://dashing-g
 ├── src
 │   ├── reducers
 │   │   └── activityReducer.ts   # Contiene la función reducer para gestionar los datos de las actividades
+│   ├── data
+│   │   ├── categories.ts        # Contiene las categorias principales de las actividades
+│   ├── types
+│   │   ├── index.ts             # Contiene los tipos globales de la aplicación
 │   ├── components
-│   │   └── ActivityList.tsx     # Muestra la lista de actividades y gestiona las acciones de eliminación
+│   │   ├── ActivityList.tsx     # Muestra la lista de actividades y gestiona las acciones de eliminación
+│   │   ├── CalorieDisplay.tsx   # Componente para formato de calorias en Tracker
+│   │   ├── CalorieTracker.tsx   # Muestra los totales de calorias consumidas y quemadas
+│   │   └── Form.tsx             # Muestra formulario para ingreso de nueva actividad
 ```
-
-## Contribución
-
-¡Las contribuciones son bienvenidas!
-
-## Licencia
-
-[Elige una licencia e incluye los detalles aquí, por ejemplo, Licencia MIT]
