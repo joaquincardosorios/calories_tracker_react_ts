@@ -1,6 +1,7 @@
 import { useEffect, useReducer, useMemo } from "react"
 import { activityReducer , initialState } from "./reducers/activityReducer"
 import Form from "./components/Form"
+import CalorieTracker from "./components/CalorieTracker"
 import ActivityList from "./components/ActivityList"
 
 function App() {
@@ -28,6 +29,15 @@ function App() {
           </button>
         </div>
       </header>
+      <section
+        className=""
+      >
+        <div
+          className=""
+        >
+          
+        </div>
+      </section>
       <div className="md:grid grid-cols-2">
         <section className="bg-lime-500 py-20 px-5">
           <div className="max-w-4xl mx-auto">
@@ -35,6 +45,14 @@ function App() {
               dispatch={dispatch}
               state={state}
             />
+            <section className="bg-gray-800 py-10 ">
+              <div className="max-w-4xl mx-6">
+                <CalorieTracker 
+                  activities={state.activities}
+                />
+
+              </div>
+            </section>
           </div>
         </section>
         <section className="p-10 mx-auto max-w-4xl">

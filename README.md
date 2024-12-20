@@ -1,50 +1,74 @@
-# React + TypeScript + Vite
+# Contador de Calorías
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es un contador de calorías sencillo desarrollado con React, TypeScript y un reducer para la gestión del estado. Permite a los usuarios realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en sus actividades diarias. Está implementado y disponible en [https://dashing-gelato-e3b027.netlify.app/](https://dashing-gelato-e3b027.netlify.app/).
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Crear Actividad:** Los usuarios pueden ingresar detalles sobre sus actividades.
+* **Leer Actividades:** Muestra una lista de actividades registradas.
+* **Actualizar Actividad:** Las actividades existentes pueden editarse para modificar sus detalles.
+* **Eliminar Actividad:** Las actividades pueden eliminarse de la lista.
+* **Gestión de Estado (Reducer):** El `activityReducer` gestiona el estado de la aplicación, manejando las operaciones de crear, actualizar y eliminar, garantizando actualizaciones predecibles.
+* **Persistencia en Local Storage:** Las actividades se guardan en el almacenamiento local, por lo que se preservan entre sesiones.
 
-## Expanding the ESLint configuration
+## Tecnologías Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+* **React:** Biblioteca de JavaScript para construir interfaces de usuario.
+* **TypeScript:** Superconjunto de JavaScript para tipado estático.
+* **Vite:** Herramienta de construcción para desarrollo rápido.
+* **Reducer (para la Gestión del Estado):** El `activityReducer` gestiona las actualizaciones del estado basándose en acciones enviadas, proporcionando una manera centralizada y predecible de manejar los datos de la aplicación.
 
-- Configure the top-level `parserOptions` property like this:
+## Instalación
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Clona el repositorio:
+   ```bash
+   git clone git@github.com:joaquincardosorios/calories_tracker_react_ts.git
+   ```
+2. Navega al directorio del proyecto:
+   ```bash
+   cd calories_tracker_react_ts
+   ```
+3. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+
+### Uso
+
+1. Inicia el servidor de desarrollo:
+   ```bash
+   npm start
+   ```
+2. Abre tu navegador y navega a [http://localhost:5173/](http://localhost:5173/).
+
+## Operaciones CRUD con Reducer
+
+El `activityReducer` gestiona las operaciones CRUD:
+
+* **Crear:** La acción `save-activity` agrega nuevas actividades al estado.
+* **Leer:** El componente recupera las actividades del estado para mostrarlas.
+* **Actualizar:** La acción `save-activity` también maneja actualizaciones reemplazando la actividad existente con la modificada. La acción `set-activeId` se utiliza para seleccionar la actividad a editar.
+* **Eliminar:** La acción `delete-activity` elimina la actividad especificada del estado.
+* **Reiniciar:** La acción `restart-app` establece las actividades en el estado como una lista vacía y borra el `activeId`.
+
+## Despliegue
+
+La aplicación está desplegada en Netlify y es accesible en: [https://dashing-gelato-e3b027.netlify.app/](https://dashing-gelato-e3b027.netlify.app/).
+
+## Estructura del Proyecto
+
+```
+├── src
+│   ├── reducers
+│   │   └── activityReducer.ts   # Contiene la función reducer para gestionar los datos de las actividades
+│   ├── components
+│   │   └── ActivityList.tsx     # Muestra la lista de actividades y gestiona las acciones de eliminación
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Contribución
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+¡Las contribuciones son bienvenidas!
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Licencia
+
+[Elige una licencia e incluye los detalles aquí, por ejemplo, Licencia MIT]
