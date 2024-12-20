@@ -16,18 +16,23 @@ function App() {
           </h1>
         </div>
       </header>
-      <section className="bg-lime-500 py-20 px-5">
-        <div className="max-4xl mx-auto">
-          <Form 
+      <div className="md:grid grid-cols-2">
+        <section className="bg-lime-500 py-20 px-5">
+          <div className="max-w-4xl mx-auto">
+            <Form 
+              dispatch={dispatch}
+              state={state}
+            />
+          </div>
+        </section>
+        <section className="p-10 mx-auto max-w-4xl">
+          <ActivityList 
+            activities={state.activities}
             dispatch={dispatch}
           />
-        </div>
-      </section>
-      <section className="p-10 mx-auto max-w-4xl">
-        <ActivityList 
-          activities={state.activities}
-        />
-      </section>
+        </section>
+
+      </div>
     </>
   )
 }
